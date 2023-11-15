@@ -7,6 +7,8 @@ const connection = require("./connection");
 const https = require("https")
 const httpRequest = require("http")
 const limit = require("./rateLimiter")
+const fs = require("fs")
+const {log} = require("util");
 let response = {};
 
 app.listen(process.env.PORT, () => {
@@ -120,6 +122,44 @@ app.get("/external/public-api/get/insert", limit, (req, res) => {
     createTable_PublicApi("nodejs_test_schema", "nodejs_public_api")
 
     insert_PublicApi(response.entries)
+
+    res.status(200).json({
+        status: res.statusCode,
+        response: "Inserimento avvenuto con successo"
+    })
+})
+
+app.post("/external/public-api/add", async (req, res) => {
+
+    let Value = []
+    const textIntoFile = "Body usato nella request :: ".concat(JSON.stringify(req.body)).concat("\n")
+
+    Value.push([req.body.API, req.body.Description, req.body.Auth, req.body.HTTPS, req.body.Cors, req.body.Link, req.body.Category])
+
+    await fs.writeFile("data/body/request.txt", textIntoFile, {
+        encoding: "utf8",
+        flag: "a"
+    }, (err) => {
+        console.log("*****************************")
+        console.log("Scrittura sul file completata");
+        if (err)
+            throw new Error(err.message)
+    })
+
+    connection.query("INSERT INTO nodejs_test_schema.nodejs_public_api (API, Description, Auth, HTTPS, Cors, Link, Category) " +
+        "VALUES ?", [Value], (err, res) => {
+
+        if (err) {
+            console.log("*********************************************")
+            console.log("Non è stato possibile completare l'operazione")
+            throw new Error(err.message)
+        }
+
+        console.log("**********************")
+        console.log("Inserimento completato");
+        console.log("Rows affected: " + res.affectedRows);
+
+    })
 
     res.status(200).json({
         status: res.statusCode,

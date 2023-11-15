@@ -1,0 +1,8 @@
+Body usato nella request :: {"API":"TestApi10","Description":"TestApi2","Auth":"","HTTPS":1,"Cors":"no","Link":"","Category":"Test"}
+Body usato nella request :: {"API":"TestApi11","Description":"TestApi2","Auth":"","HTTPS":1,"Cors":"no","Link":"","Category":"Test"}
+Body usato nella request :: {"API":"TestApi12","Description":"TestApi2","Auth":"","HTTPS":1,"Cors":"no","Link":"","Category":"Test"}
+Body usato nella request :: {"API":"TestApi13","Description":"TestApi2","Auth":"","HTTPS":1,"Cors":"no","Link":"","Category":"Test"}
+Body usato nella request :: {"API":"TestApi13","Description":"TestApi2","Auth":"","HTTPS":1,"Cors":"no","Link":"","Category":"Test"}
+Body usato nella request :: {"API":"TestApi13","Description":"TestApi2","Auth":"","HTTPS":1,"Cors":"no","Link":"","Category":"Test"}
+Body usato nella request :: {"API":"TestApi13","Description":"TestApi2","Auth":"","HTTPS":1,"Cors":"no","Link":"","Category":"Test"}
+Body usato nella request :: {"API":"ApiTest","Description":"Questa è la descrizione per ApiTest","Auth":"","HTTPS":0,"Cors":"yes","Link":"Questa è il link per ApiTest","Category":"Test"}
